@@ -11,12 +11,12 @@ async function flushPromisesFs() {
     await flushPromises();
 }
 
+beforeEach(() => {
+    fs.writeFile.mockClear();
+});
 
 describe("It's formData form", () => {
 
-    beforeEach(() => {
-        fs.writeFile.mockClear();
-    });
     let file = path.resolve(__dirname, '100x300.png');
     test("It's form", done => {
         request(app)
