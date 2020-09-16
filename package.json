@@ -1,0 +1,20 @@
+{
+  "name": "jest-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "flush-promises": "^1.0.2",
+    "jest": "^26.4.2",
+    "multer": "^1.4.2",
+    "superagent": "^6.1.0",
+    "supertest": "^4.0.2"
+  }
+}
