@@ -3,21 +3,30 @@ const fs = require('fs');
 jest.spyOn(fs, 'writeFile');
 const app = require('../app');
 const path = require('path');
+const flushPromises = require('flush-promises');
 
-beforeEach(() => {
-    fs.writeFile.mockClear();
-});
+async function flushPromisesFs() {
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+}
+
 
 describe("It's formData form", () => {
+
+    beforeEach(() => {
+        fs.writeFile.mockClear();
+    });
     let file = path.resolve(__dirname, '100x300.png');
     test("It's form", done => {
         request(app)
             .post('/form')
             .attach('cv', file)
-            .then(response => {
+            .then(async response => {
                 expect(response.statusCode).toBe(200);
                 expect(response.body.result).toBe(true);
                 expect(fs.writeFile.mock.calls.length).toBe(1);
+                await flushPromisesFs();
                 done();
             });
     });
