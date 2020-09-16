@@ -21,13 +21,6 @@ describe("It's formData form", () => {
                 done();
             });
     });
-    test("It's form 1", done => {
-        request(app)
-            .post('/form')
-            .then(response => {
-                done();
-            });
-    });
     test("It's form 2", done => {
         request(app)
             .post('/form')
